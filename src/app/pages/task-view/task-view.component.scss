@@ -121,13 +121,6 @@
         outline-offset: -1px;
     }
 
-    &:target {
-        background-color: #cff8ef;
-        color: $dark-green;
-        outline: solid 1px $dark-green;
-        outline-offset: -1px;
-    }
-
 }
 
 .list-add.button {

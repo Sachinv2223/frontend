@@ -8,14 +8,10 @@
             </h1>
             <div class="list-menu">
                 <ng-container *ngFor="let list of lists">
-                    <a href="#{{list._id}}" id="{{list._id}}" class="list-menu-item"
-                        (click)="fetchAllTasksByListId(list._id)">
+                    <a class="list-menu-item" routerLink="/lists/{{list._id}}" routerLinkActive="is-active" >
                         <p>{{list.Ltitle}}</p>
                     </a>
                 </ng-container>
-                <!-- <a href="" class="list-menu-item is-active">
-                    <p>List #1</p>
-                </a> -->
             </div>
 
             <button class="list-add button is-primary has-text-white" (click)="createNewList()">+ New List</button>
