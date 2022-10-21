@@ -1,0 +1,52 @@
+<div class="centered-content">
+
+    <div class="task-manager-container" [ngClass]="{blur: isListDataUpdating}">
+
+        <div class="sidebar">
+            <h1 class="title">
+                Lists
+            </h1>
+            <div class="list-menu">
+                <ng-container *ngFor="let list of lists">
+                    <a href="#{{list._id}}" id="{{list._id}}" class="list-menu-item"
+                        (click)="fetchAllTasksByListId(list._id)">
+                        <p>{{list.Ltitle}}</p>
+                    </a>
+                </ng-container>
+                <!-- <a href="" class="list-menu-item is-active">
+                    <p>List #1</p>
+                </a> -->
+            </div>
+
+            <button class="list-add button is-primary has-text-white" (click)="createNewList()">+ New List</button>
+        </div>
+
+        <div class="task-list-container">
+            <h1 class="title">
+                Tasks
+            </h1>
+
+            <div class="task-items-local-container" *ngIf="tasks">
+                <ng-container *ngFor="let task of tasks">
+                    <div class="task-item">
+                        <p>{{task.Ttitle}}</p>
+                    </div>
+                </ng-container>
+            </div>
+
+
+            <!-- <div class="task complete">
+                <p>This is something i have to do -3</p>
+            </div> -->
+
+            <div class="task-add-container">
+                <button class="task-add button is-primary has-text-white">+</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="data-add-container" *ngIf="isListDataUpdating">
+        <app-task-create (isDataModifyEmitter)="fetchListModifyStatus($event)"></app-task-create>
+    </div>
+</div>
